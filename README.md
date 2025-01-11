@@ -109,8 +109,8 @@ Az alábbi <a href="https://www.youtube.com/watch?v=LPaSteXj0MQ&list=PL6tf8fRbav
 2. <a href="https://www.npmjs.com/package/axios">axios</a>
         npm install axios
 
-3. <a href="https://reactrouter.com/home">react router </a>
-        npm install react-router
+3. <a href="https://www.w3schools.com/react/react_router.asp">react router </a>
+        npm install react-router-dom
 
 
 **Ne feledd, hogy a frontend és a backend alkalmazást külön VS Code ablakban indítsd el!**
