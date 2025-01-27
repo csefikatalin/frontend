@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { myAxios } from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
@@ -29,11 +29,15 @@ export const AuthProvider = ({ children }) => {
       console.log(resp);
     });
   };
-
+  useEffect(() => {
+    if (!user) {
+      getUser()
+    }
+  }, [])
   const loginReg = async ({ ...adat }, vegpont) => {
     //lekérjük a csrf tokent
     await csrf();
-    console.log(adat,vegpont);
+    console.log(adat, vegpont);
 
     try {
       await myAxios.post(vegpont, adat);
@@ -44,7 +48,7 @@ export const AuthProvider = ({ children }) => {
       //elmegyünk  a kezdőlapra
       getUser()
       navigate("/");
-      
+
     } catch (error) {
       console.log(error);
       if (error.response.status === 422) {

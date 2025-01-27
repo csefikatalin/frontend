@@ -1,14 +1,11 @@
 import React from "react";
 
-import { Outlet } from "react-router-dom";
-import Navigacio from "../pages/Navigacio";
+import { Navigate, Outlet } from "react-router-dom";
+
+import useAuthContext from "../contexts/AuthContext";
+import NavigacioVendeg from "../pages/NavigacioVendeg";
 
 export default function VendegLayout() {
-    return (
-        <>
-            <Navigacio />
-
-            <Outlet />
-        </>
-    );
+    const { user } = useAuthContext(); 
+      return !user ? <>    <NavigacioVendeg /> <Outlet /> </>  : <Navigate to="/" />;
 }
